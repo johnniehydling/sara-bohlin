@@ -845,6 +845,18 @@ footer {
     padding: 64px 24px;
   }
 
+  #om-forfattaren {
+    padding: 16px 24px;
+  }
+
+  #om-forfattaren .author-grid {
+    gap: 8px;
+  }
+
+  .author-photo-wrap {
+    max-width: 220px;
+  }
+
   footer {
     padding: 24px;
     flex-direction: column;

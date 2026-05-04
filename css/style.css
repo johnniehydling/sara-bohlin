@@ -850,11 +850,23 @@ footer {
   }
 
   #om-forfattaren .author-grid {
-    gap: 8px;
+    gap: 0;
   }
 
-  .author-photo-wrap {
-    max-width: 220px;
+  #om-forfattaren {
+    padding-top: 0;
+  }
+
+  #om-forfattaren .author-text {
+    margin-top: -48px;
+  }
+
+  .author-photo-wrap::before {
+    height: 45%;
+  }
+
+  .author-photo-wrap::after {
+    height: 45%;
   }
 
   footer {

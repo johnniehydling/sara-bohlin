@@ -857,6 +857,15 @@ footer {
     padding-top: 0;
   }
 
+  #om-boken {
+    padding-top: 48px;
+    overflow: hidden;
+  }
+
+  .book-cover-wrap {
+    margin-top: 0;
+  }
+
   #om-forfattaren .author-text {
     margin-top: -48px;
   }

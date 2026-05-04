@@ -1,0 +1,864 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --crimson: #8B1D3F;
+  --crimson-dark: #5C1028;
+  --crimson-light: #B82E52;
+  --accent-red: #C42847;
+  --rose-pale: #E8C4CC;
+  --gold: #C9A96E;
+  --dark-bg: #0E0810;
+  --dark-mid: #1A0F18;
+  --dark-surface: #231425;
+  --text-light: #F2EEF0;
+  --text-muted: #B8A8B2;
+  --nav-height: 70px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* ── NAVIGATION ── */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 48px;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(14, 8, 16, 0.97);
+  box-shadow: 0 1px 0 rgba(139, 29, 63, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--crimson-light);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-light);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-social {
+  position: absolute;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-social-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-social-link:hover {
+  color: var(--text-light);
+}
+
+.nav-social-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  position: absolute;
+  right: 24px;
+}
+
+.nav-hamburger span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+/* ── HERO ── */
+
+#hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #0C0C0C;
+}
+
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(14, 8, 16, 0.35) 0%,
+      rgba(14, 8, 16, 0.05) 40%,
+      rgba(14, 8, 16, 0.55) 75%,
+      rgba(14, 8, 16, 0.92) 100%
+    ),
+    radial-gradient(ellipse at center, transparent 45%, rgba(14, 8, 16, 0.25) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 40px 80px;
+  width: 100%;
+}
+
+.hero-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 200;
+  line-height: 1.0;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.hero-quote {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(242, 238, 240, 0.65);
+  letter-spacing: 0.06em;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+}
+
+.hero-scroll-hint span {
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.hero-scroll-hint::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--text-light), transparent);
+}
+
+/* ── DIVIDER ── */
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--crimson-light), transparent);
+  margin: 0 auto 48px;
+}
+
+.inter-section-divider {
+  height: 0;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.inter-section-divider::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--crimson-light), transparent);
+  transform: translateY(-50%);
+}
+
+/* ── SECTIONS ── */
+
+section {
+  padding: 100px 64px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 200;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 48px;
+  color: var(--text-light);
+}
+
+/* ── OM FÖRFATTAREN ── */
+
+#om-forfattaren {
+  background: var(--dark-mid);
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.author-photo-wrap {
+  position: relative;
+}
+
+.author-photo-wrap::before,
+.author-photo-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.author-photo-wrap::before {
+  top: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, var(--dark-mid) 0%, transparent 100%);
+}
+
+.author-photo-wrap::after {
+  bottom: 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--dark-mid) 0%, transparent 100%);
+}
+
+.author-photo-sides {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to right,  var(--dark-mid) 0%, transparent 60%),
+    linear-gradient(to left,   var(--dark-mid) 0%, transparent 60%);
+}
+
+.author-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(15%);
+}
+
+.author-text p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.author-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--rose-pale);
+}
+
+.author-quote {
+  border-left: 2px solid var(--crimson-light);
+  padding-left: 24px;
+  margin: 40px 0;
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+/* ── OM SKUGGSPELAREN ── */
+
+#om-boken {
+  background: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+#om-boken::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(ellipse at right center, rgba(139, 29, 63, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.book-quote {
+  border-left: 2px solid var(--crimson-light);
+  padding-left: 20px;
+  margin: 32px 0 0;
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--rose-pale);
+}
+
+.book-quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+}
+
+.book-cover-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+}
+
+.book-cover-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(139, 29, 63, 0.5) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+.book-cover-large {
+  width: 280px;
+  filter: drop-shadow(0 20px 60px rgba(139, 29, 63, 0.6));
+  transition: transform 0.4s ease;
+}
+
+.book-cover-large:hover {
+  transform: scale(1.02);
+}
+
+.book-text p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.book-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--rose-pale);
+  font-style: italic;
+}
+
+.book-meta {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(139, 29, 63, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-meta-item {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+}
+
+.book-meta-label {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  min-width: 120px;
+}
+
+.book-meta-value {
+  color: var(--text-muted);
+}
+
+.buy-btn {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 14px 36px;
+  border: 1px solid var(--crimson-light);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.buy-btn:hover {
+  background: var(--crimson-light);
+  color: white;
+}
+
+/* ── RECENSIONER ── */
+
+#recensioner {
+  background: var(--dark-mid);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 29, 63, 0.2);
+  padding: 36px 32px 32px;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.review-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--rose-pale);
+  margin-bottom: 24px;
+}
+
+.review-source {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+}
+
+/* ── PRESS ── */
+
+#press {
+  background: var(--dark-bg);
+}
+
+.press-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.press-item {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.press-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.press-item:hover {
+  padding-left: 12px;
+}
+
+.press-date {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--crimson-light);
+  text-transform: uppercase;
+}
+
+.press-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.press-item:hover .press-title {
+  color: var(--text-light);
+}
+
+.press-publication {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+/* ── KONTAKT ── */
+
+#kontakt {
+  background: var(--dark-surface);
+  text-align: center;
+}
+
+#kontakt .section-inner {
+  max-width: 680px;
+}
+
+#kontakt .section-title {
+  margin-bottom: 20px;
+}
+
+.contact-intro {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-link {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: var(--crimson-light);
+}
+
+.contact-divider {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--crimson), transparent);
+  margin: 0 auto;
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.social-link {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: var(--crimson-light);
+}
+
+/* ── NAV SOCIAL MOBILE ROW (dold på desktop, synlig i hamburger-meny) ── */
+
+.nav-links-social {
+  display: none;
+  border-bottom: none !important;
+}
+
+.nav-links-social a {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 0 !important;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links-social a:hover {
+  color: var(--text-light);
+}
+
+.nav-links-social svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+
+footer {
+  background: var(--dark-bg);
+  padding: 32px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(139, 29, 63, 0.2);
+}
+
+.footer-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.footer-copy {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 1024px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  section {
+    padding: 80px 40px;
+  }
+
+  .author-grid,
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .author-photo-wrap {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .book-grid .book-text {
+    order: -1;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .press-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .press-publication {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 24px;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(14, 8, 16, 0.99);
+    flex-direction: column;
+    gap: 0;
+    padding: 24px 0;
+    border-top: 1px solid rgba(139, 29, 63, 0.3);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 16px 32px;
+  }
+
+  .nav-social {
+    display: none;
+  }
+
+  .nav-links-social {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 20px 32px !important;
+    border-top: 1px solid rgba(139, 29, 63, 0.2) !important;
+    margin-top: 8px;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    position: absolute;
+    right: 24px;
+  }
+
+  .hero-content {
+    padding: 0 24px 64px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+  }
+
+  section {
+    padding: 64px 24px;
+  }
+
+  footer {
+    padding: 24px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

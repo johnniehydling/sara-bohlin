@@ -1,0 +1,20 @@
+/* index2.html — hero video visas i sin helhet, utan beskärning */
+
+#hero {
+  background: #0C0C0C;
+}
+
+.hero-photo-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-img {
+  position: static;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+}

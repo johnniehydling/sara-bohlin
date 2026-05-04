@@ -204,33 +204,6 @@ nav.scrolled {
   letter-spacing: 0.06em;
 }
 
-.hero-scroll-hint {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  opacity: 0.4;
-}
-
-.hero-scroll-hint span {
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-light);
-}
-
-.hero-scroll-hint::after {
-  content: '';
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--text-light), transparent);
-}
 
 /* ── DIVIDER ── */
 
@@ -257,6 +230,22 @@ nav.scrolled {
   height: 80px;
   background: linear-gradient(to bottom, transparent, var(--crimson-light), transparent);
   transform: translateY(-50%);
+}
+
+.inter-section-divider--labeled span {
+  position: absolute;
+  top: 0;
+  transform: translateY(-80px);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--crimson-light);
+  opacity: 0.7;
+}
+
+.inter-section-divider--labeled::after {
+  height: 160px;
 }
 
 /* ── SECTIONS ── */

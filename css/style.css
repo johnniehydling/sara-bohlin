@@ -235,7 +235,7 @@ nav.scrolled {
 .inter-section-divider--labeled span {
   position: absolute;
   top: 0;
-  transform: translateY(-80px);
+  transform: translateY(-118px);
   font-size: 0.55rem;
   font-weight: 500;
   letter-spacing: 0.25em;
@@ -245,7 +245,8 @@ nav.scrolled {
 }
 
 .inter-section-divider--labeled::after {
-  height: 160px;
+  height: 140px;
+  transform: translateY(calc(-100% + 40px));
 }
 
 /* ── SECTIONS ── */
